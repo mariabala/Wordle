@@ -1,0 +1,19 @@
+@use '../util' as *;
+
+.guess{
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3px;
+    width: 300px;
+
+    
+}
+.guess_tile{
+    border: 2px solid hsl(0, 1%, 32%);
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
