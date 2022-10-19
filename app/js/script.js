@@ -13,6 +13,9 @@ document.addEventListener('keydown', (e) =>{
 	if (e.key.length ==1 && pattern.test(e.key)){
 		updateLetters(keypress);
 	}
+	else if  (e.key == 'Backspace'){
+		deleteLetter();
+	}
 
 });
 
@@ -30,4 +33,19 @@ function updateTiles(tileNumber, letter) {
 	let currentTile = document.querySelector('#guessTile' + tileNumber);
 	currentTile.innerText = letter;
 	//currentTile.classList.add('has-letter');
+}
+
+//delete last letter 
+function deleteLetter() {
+	let oldLetters = currentGuess.dataset.letters;
+	let newLetters = oldLetters.slice(0, -1);
+	currentGuess.dataset.letters = newLetters;
+	deleteTileLetter(oldLetters.length);
+}
+
+//remove markup from last tile on screen
+function deleteTileLetter(tileNumber){
+	document.querySelector('#guessTile' + tileNumber).innerText = "";
+
+
 }
