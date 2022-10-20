@@ -5,12 +5,29 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 3px;
-    width: 300px;
+    width: 300px;s
 
+    .correct{
+        background-color: hsl(126, 55%, 38%);
+        border-color: hsl(126, 55%, 38%); ;
+    }
+    .present{
+        background-color: hsl(48, 64%, 54%);
+        border-color:hsl(48, 63%, 53%);
+    }
+    .absent{
+        background-color: hsl(180, 2%, 46%);
+        border-color: hsl(180, 2%, 56%) ;
+    }
+    .has-letter{
+        border-color: hsl(180, 4%, 78%);
+    }
     
 }
+
+
 .guess_tile{
-    border: 2px solid hsl(0, 1%, 32%);
+    border: 2px solid hsl(0, 3%, 56%);
     width: 52px;
     height: 52px;
     display: flex;
