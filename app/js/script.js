@@ -21,19 +21,68 @@ chooseWord();
 document.addEventListener('keydown', (e) =>{
 	//console.log('keypress: ' + e.key);
 	let keypress = e.key;
-	if (e.key.length ==1 && pattern.test(e.key) && currentGuess.dataset.letters.length <5){
-		updateLetters(keypress);
+	if (currentGuessCount < 7){
+		if (e.key.length ==1 && pattern.test(e.key) && currentGuess.dataset.letters.length <5){
+			updateLetters(keypress);
 	}
-	else if  (e.key == 'Backspace' && currentGuess.dataset.letters != ''){
-		deleteLetter();
+		else if  (e.key == 'Backspace' && currentGuess.dataset.letters != ''){
+			deleteLetter();
 	}
-	else if (e.key == 'Enter' && currentGuess.dataset.letters.length == 5){
-		for(let i = 0; i<5; i++){
-			revealTile(i, checkLetter(i));		}
-		
+		else if (e.key == 'Enter' && currentGuess.dataset.letters.length == 5){
+			submitGuess();
 	}
-
+	}
 });
+
+const submitGuess = () =>{
+	for (let i = 0; i < 5; i++) {
+		setTimeout(() => {
+		  revealTile(i, checkLetter(i));
+		}, i * 200);
+	  }
+}
+
+const jumpTiles = () => {
+	for (let i = 0; i < 5; i++) {
+	  setTimeout(() => {
+		let currentTile = document.querySelector(
+		  '#guess' + currentGuessCount + 'Tile' + (i + 1)
+		);
+		currentTile.classList.add('jump');
+	  }, i * 200);
+	}
+  };
+
+const checkIfGuessComplete = (i) => {
+	if (i == 4) {
+	  checkWin();
+	}
+  };
+
+  const checkWin = () => {
+	//console.log('check win');
+	if (solution == currentGuess.dataset.letters) {
+	  // Win;
+	  setTimeout(() => {
+		jumpTiles();
+	  }, 500);
+	} else {
+	  // Not won
+	  currentGuessCount = currentGuessCount + 1;
+	  currentGuess = document.querySelector('#guess' + currentGuessCount);
+	  //console.log('not a win, increment guess count to ' + currentGuessCount);
+	  if (currentGuessCount == 7) {
+		setTimeout(() => {
+		  showSolution();
+		}, 500);
+	  }
+	}
+  };
+
+  const showSolution = () => {
+	alert('Better luck next time. The solution was: ' + solution);
+  };
+
 
 const checkLetter = (position) => {
 	console.log('checkLetter');
@@ -69,7 +118,7 @@ const updateLetters = (letter) => {
 
 function updateTiles(tileNumber, letter) {
 	//console.log('updateTile(' + tileNumber, letter + ')');
-	let currentTile = document.querySelector('#guessTile' + tileNumber);
+	let currentTile = document.querySelector('#guess' + currentGuessCount + 'Tile' + tileNumber);
 	currentTile.innerText = letter;
 	currentTile.classList.add('has-letter');
 }
@@ -92,47 +141,23 @@ function deleteTileLetter(tileNumber){
 }
 
 const revealTile = (i,state) => {
-	console.log('revealTile = ' +i, state );
+	//console.log('revealTile = ' +i, state );
 	let tileNum = i +1;
-	let tile = document.querySelector('#guessTile' + tileNum);
-	console.log(tile);
-	// if (status == 'correct'){
-	// 	tile.classList.add('correct');
-	// }
-	// else if (status == 'present'){
-	// 	tile.classList.add('present');
-	// }
-	// else if ( status == 'absent'){
-	// 	tile.classList.add('absent');
-	// }
-
 	flipTile(tileNum, state);
-	
+	checkIfGuessComplete(i);	
 };
 
 const flipTile = (tileNum, state) => {
-	let tile = document.querySelector('#guessTile' + tileNum);
+	let tile = document.querySelector('#guess' + currentGuessCount + 'Tile' + tileNum);
 	tile.classList.add('flip-in');
-	setTimeout(()=> {
-		tile.classList.add(state);
+	setTimeout(() => {
+	  tile.classList.add(state);
 	}, 250);
-	setTimeout( ()=> {
-		tile.classList.remove('flip-in');
-		tile.classList.add('flip-out');
-	},250);
-	
-	// let tile = document.querySelector(
-	// 	'#guess' + currentGuessCount + 'Tile' + tileNum
-	//   );
-	//   tile.classList.add('flip-in');
-	//   setTimeout(() => {
-	// 	tile.classList.add(state);
-	//   }, 250);
-	//   setTimeout(() => {
-	// 	tile.classList.remove('flip-in');
-	// 	tile.classList.add('flip-out');
-	//   }, 250);
-	//   setTimeout(() => {
-	// 	tile.classList.remove('flip-out');
-	//   }, 1500);
+	setTimeout(() => {
+	  tile.classList.remove('flip-in');
+	  tile.classList.add('flip-out');
+	}, 250);
+	setTimeout(() => {
+	  tile.classList.remove('flip-out');
+	}, 1500);
 }
