@@ -1,0 +1,18 @@
+.App-module-container{
+   
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header{
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    width: 420px;
+
+}

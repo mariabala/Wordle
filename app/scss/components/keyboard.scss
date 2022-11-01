@@ -1,0 +1,54 @@
+@use '../util' as *;
+
+
+div{
+    display: block;
+}
+
+.Keyboard-module-row{
+    display: flex;
+    width: 100%;
+    touch-action: manipulation;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 8px;
+    margin-left: auto;
+    justify-content: center;
+    
+       
+}
+
+.Keyboard-module-row button{
+
+    appearance: auto;
+    line-height: normal;
+    color:aliceblue;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+    font-family: inherit;
+    font-weight: bold;
+    border: 0;
+    padding: 0;
+    height: 58px;
+    cursor: pointer;
+    background-color: rgb(129, 131, 132);
+    flex-grow: 1;
+    text-transform: uppercase;
+    margin-right: 6px;
+    border-radius: 4px;
+    user-select: none;
+
+    
+}
+
+.Key-module-half{
+    flex-grow: 0.5;
+    flex-shrink: 1;
+    flex-basis: 0%;
+   
+}
+
+.Keyboard-module-row button.wide-button{
+    flex-grow: 1.5;
+}

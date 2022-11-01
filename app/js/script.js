@@ -3,6 +3,38 @@ const pattern = /[a-z]/;
 let solution = '';
 let currentGuessCount = 1;
 
+const keys = document.querySelectorAll('.Keyboard-module-row button');
+
+for (let i = 0; i < keys.length; i++) {
+    keys[i].onclick = ({ target }) => {
+      const lett = target.getAttribute("data-key");
+	  console.log(lett);
+	  if(lett.length === 1 && pattern.test(lett) && currentGuess.dataset.letters.length <5 ){
+		updateLetters(lett);
+	  }
+	  else if  (lett === 'del' && currentGuess.dataset.letters != ''){
+		deleteLetter();
+	  }
+	  else if (lett === 'enter' && currentGuess.dataset.letters.length == 5){
+		submitGuess();
+	  }
+	}
+}
+		
+
+	// if (currentGuessCount < 7){
+	// 	if (e.key.length ==1 && pattern.test(e.key) && currentGuess.dataset.letters.length <5){
+	// 		updateLetters(keypress);
+	// }
+	// 	else if  (e.key == 'Backspace' && currentGuess.dataset.letters != ''){
+	// 		deleteLetter();
+	// }
+	// 	else if (e.key == 'Enter' && currentGuess.dataset.letters.length == 5){
+	// 		submitGuess();
+	// }
+	// }
+		
+    
 
 let currentGuess = document.querySelector('#guess' + currentGuessCount);
 //let currentLetters = currentGuess.dataset.letters;
@@ -133,7 +165,7 @@ function deleteLetter() {
 
 //remove markup from last tile on screen
 function deleteTileLetter(tileNumber){
-	let currentTile = document.querySelector('#guessTile' + tileNumber);
+	let currentTile = document.querySelector('#guess' + currentGuessCount + 'Tile' + tileNumber);
 	currentTile.innerText = "";
 	currentTile.classList.remove('has-letter');
 
@@ -161,3 +193,30 @@ const flipTile = (tileNum, state) => {
 	  tile.classList.remove('flip-out');
 	}, 1500);
 }
+
+//const keys = document.querySelectorAll("button");
+// keys.forEach(key => {
+// 	key.addEventListener("click", type);
+// })
+// const type =() =>{
+// 	const tile = document.querySelector('#guess' + currentGuessCount + 'Tile' + tileNum);
+// 	tile.textContent += this.textContent;
+// }
+
+// document.addEventListener('click', (e) =>{
+// 	//console.log('keypress: ' + e.key);
+// 	let keypress = document.querySelectorAll("button");
+// 	if (currentGuessCount < 7){
+// 		if (e.key.length ==1 && pattern.test(e.key) && currentGuess.dataset.letters.length <5){
+// 			updateLetters(keypress);
+// 	}
+// 		else if  (e.key == 'Backspace' && currentGuess.dataset.letters != ''){
+// 			deleteLetter();
+// 	}
+// 		else if (e.key == 'Enter' && currentGuess.dataset.letters.length == 5){
+// 			submitGuess();
+// 	}
+// 	}
+// });
+
+

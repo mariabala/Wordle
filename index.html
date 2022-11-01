@@ -3,112 +3,117 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title></title>
+		<title>Wordle Clone</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="/dist/style.css" />
 		<script defer src="/dist/script.js"></script>
+		
 	</head>
 	<body class="dark">
-		<div class="App-module-container" style="height: 100%;">
-			<div class="title">
-				<h1>WORDLE</h1>
+		<div>
+			<div class="page">
+				<div class="App-module-container" style="height: 100%;">
+					<!--<div class="title">
+						<h1>WORDLE</h1> 
+					</div> -->
+					<header class="app-header">
+						<h1>Wordle</h1>
+					</header>
+					<section class="game" style="width: 420px">
+						<div id = "guess1" class="guess" data-letters ="">
+							<div class="guess_tile" id="guess1Tile1"></div>
+							<div class="guess_tile" id="guess1Tile2"></div>
+							<div class="guess_tile" id="guess1Tile3"></div>
+							<div class="guess_tile" id="guess1Tile4"></div>
+							<div class="guess_tile" id="guess1Tile5"></div>
+
+						</div>
+						<div id = "guess2" class="guess" data-letters ="">
+							<div class="guess_tile" id="guess2Tile1"></div>
+							<div class="guess_tile" id="guess2Tile2"></div>
+							<div class="guess_tile" id="guess2Tile3"></div>
+							<div class="guess_tile" id="guess2Tile4"></div>
+							<div class="guess_tile" id="guess2Tile5"></div>
+
+						</div>
+						<div id = "guess3" class="guess" data-letters ="">
+							<div class="guess_tile" id="guess3Tile1"></div>
+							<div class="guess_tile" id="guess3Tile2"></div>
+							<div class="guess_tile" id="guess3Tile3"></div>
+							<div class="guess_tile" id="guess3Tile4"></div>
+							<div class="guess_tile" id="guess3Tile5"></div>
+
+						</div>
+						<div id = "guess4" class="guess" data-letters ="">
+							<div class="guess_tile" id="guess4Tile1"></div>
+							<div class="guess_tile" id="guess4Tile2"></div>
+							<div class="guess_tile" id="guess4Tile3"></div>
+							<div class="guess_tile" id="guess4Tile4"></div>
+							<div class="guess_tile" id="guess4Tile5"></div>
+
+						</div>
+						<div id = "guess5" class="guess" data-letters ="">
+							<div class="guess_tile" id="guess5Tile1"></div>
+							<div class="guess_tile" id="guess5Tile2"></div>
+							<div class="guess_tile" id="guess5Tile3"></div>
+							<div class="guess_tile" id="guess5Tile4"></div>
+							<div class="guess_tile" id="guess5Tile5"></div>
+
+						</div>
+						<div id = "guess6" class="guess" data-letters ="">
+							<div class="guess_tile" id="guess6Tile1"></div>
+							<div class="guess_tile" id="guess6Tile2"></div>
+							<div class="guess_tile" id="guess6Tile3"></div>
+							<div class="guess_tile" id="guess6Tile4"></div>
+							<div class="guess_tile" id="guess6Tile5"></div>
+
+						</div>
+					</section>
+					<div class = "keyboard" role="group" aria-label="Keyboard" style="width: 420px; height: 420px; position: relative;">
+						<div class ="Keyboard-module-row">
+							<button type="button" data-key = "q" >q</button>
+							<button type="button" data-key = "w" >w</button>
+							<button type="button" data-key = "e" >e</button>
+							<button type="button" data-key = "r" >r</button>
+							<button type="button" data-key = "t" >t</button>
+							<button type="button" data-key = "y" >y</button>
+							<button type="button" data-key = "u" >u</button>
+							<button type="button" data-key = "i" >o</button>
+							<button type="button" data-key = "p" >p</button>
+						</div>
+						<div class = "Keyboard-module-row">
+							<div data-testid="spacer" class="Key-module-half"></div>
+								<button type="button" data-key = "a" >a</button>
+								<button type="button" data-key = "s" >s</button>
+								<button type="button" data-key = "d" >d</button>
+								<button type="button" data-key = "f">f</button>
+								<button type="button" data-key = "g" >g</button>
+								<button type="button" data-key = "h" >h</button>
+								<button type="button" data-key = "j" >j</button>
+								<button type="button" data-key = "k" >k</button>
+								<button type="button" data-key = "l" >l</button>
+							<div data-testid="spacer" class="Key-module-half"></div>
+						</div>
+						<div class="Keyboard-module-row">
+							<button type="button" data-key="enter" class = "wide-button">enter</button>
+							<button type="button" data-key = "z" >z</button>
+							<button type="button" data-key = "x" >x</button>
+							<button type="button" data-key = "c" >c</button>
+							<button type="button" data-key = "v" >v</button>
+							<button type="button" data-key = "b" >b</button>
+							<button type="button" data-key = "n" >n</button>
+							<button type="button" data-key = "m">m</button>
+							<button type="button" data-key = "k" >k</button>
+							<button type="button" data-key="del" aria-label = "backspace" class="wide-button ">del
+							</button>
+							
+						</div>
+
+					</div>
+				</div>
 			</div>
-			<section class="game">
-				<div id = "guess1" class="guess" data-letters ="">
-					<div class="guess_tile" id="guess1Tile1"></div>
-					<div class="guess_tile" id="guess1Tile2"></div>
-					<div class="guess_tile" id="guess1Tile3"></div>
-					<div class="guess_tile" id="guess1Tile4"></div>
-					<div class="guess_tile" id="guess1Tile5"></div>
-
-				</div>
-				<div id = "guess2" class="guess" data-letters ="">
-					<div class="guess_tile" id="guess2Tile1"></div>
-					<div class="guess_tile" id="guess2Tile2"></div>
-					<div class="guess_tile" id="guess2Tile3"></div>
-					<div class="guess_tile" id="guess2Tile4"></div>
-					<div class="guess_tile" id="guess2Tile5"></div>
-
-				</div>
-				<div id = "guess3" class="guess" data-letters ="">
-					<div class="guess_tile" id="guess3Tile1"></div>
-					<div class="guess_tile" id="guess3Tile2"></div>
-					<div class="guess_tile" id="guess3Tile3"></div>
-					<div class="guess_tile" id="guess3Tile4"></div>
-					<div class="guess_tile" id="guess3Tile5"></div>
-
-				</div>
-				<div id = "guess4" class="guess" data-letters ="">
-					<div class="guess_tile" id="guess4Tile1"></div>
-					<div class="guess_tile" id="guess4Tile2"></div>
-					<div class="guess_tile" id="guess4Tile3"></div>
-					<div class="guess_tile" id="guess4Tile4"></div>
-					<div class="guess_tile" id="guess4Tile5"></div>
-
-				</div>
-				<div id = "guess5" class="guess" data-letters ="">
-					<div class="guess_tile" id="guess5Tile1"></div>
-					<div class="guess_tile" id="guess5Tile2"></div>
-					<div class="guess_tile" id="guess5Tile3"></div>
-					<div class="guess_tile" id="guess5Tile4"></div>
-					<div class="guess_tile" id="guess5Tile5"></div>
-
-				</div>
-				<div id = "guess6" class="guess" data-letters ="">
-					<div class="guess_tile" id="guess6Tile1"></div>
-					<div class="guess_tile" id="guess6Tile2"></div>
-					<div class="guess_tile" id="guess6Tile3"></div>
-					<div class="guess_tile" id="guess6Tile4"></div>
-					<div class="guess_tile" id="guess6Tile5"></div>
-
-				</div>
-			</section>
-			<section class = "keyboard" role="group" aria-label="Keyboard">
-				<div class ="Keyboard-module-row">
-					<button type="button" data-key = "q" class="Key-module-key">q</button>
-					<button type="button" data-key = "w" class="Key-module-key">w</button>
-					<button type="button" data-key = "e" class="Key-module-key">e</button>
-					<button type="button" data-key = "r" class="Key-module-key">r</button>
-					<button type="button" data-key = "t" class="Key-module-key">t</button>
-					<button type="button" data-key = "y" class="Key-module-key">y</button>
-					<button type="button" data-key = "u" class="Key-module-key">u</button>
-					<button type="button" data-key = "i" class="Key-module-key">o</button>
-					<button type="button" data-key = "p" class="Key-module-key">p</button>
-				</div>
-				<div class = "Keyboard-module-row">
-					<div data-testid="spacer" class="Key-module-half"></div>
-						<button type="button" data-key = "a" class="Key-module-key">a</button>
-						<button type="button" data-key = "s" class="Key-module-key">s</button>
-						<button type="button" data-key = "d" class="Key-module-key">d</button>
-						<button type="button" data-key = "f" class="Key-module-key">f</button>
-						<button type="button" data-key = "g" class="Key-module-key">g</button>
-						<button type="button" data-key = "h" class="Key-module-key">h</button>
-						<button type="button" data-key = "j" class="Key-module-key">j</button>
-						<button type="button" data-key = "k" class="Key-module-key">k</button>
-						<button type="button" data-key = "l" class="Key-module-key">l</button>
-					<div data-testid="spacer" class="Key-module-half"></div>
-				</div>
-				<div class="Keyboard-module-row">
-					<button type="button" data-key="↵">enter</button>
-					<button type="button" data-key = "z" class="Key-module-key">z</button>
-					<button type="button" data-key = "x" class="Key-module-key">x</button>
-					<button type="button" data-key = "c" class="Key-module-key">c</button>
-					<button type="button" data-key = "v" class="Key-module-key">v</button>
-					<button type="button" data-key = "b" class="Key-module-key">b</button>
-					<button type="button" data-key = "n" class="Key-module-key">n</button>
-					<button type="button" data-key = "m" class="Key-module-key">m</button>
-					<button type="button" data-key = "k" class="Key-module-key">k</button>
-					<button type="button" data-key="←" aria-label = "backspace" class="Key-module-key">
-						<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="2 4" class="game-icon">
-							<path fill="blue"></path> 
-						</svg>
-					</button>
-					
-				</div>
-
-			</section>
 		</div>
 	</body>
 </html>
