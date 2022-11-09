@@ -8,7 +8,6 @@ const keys = document.querySelectorAll('.Keyboard-module-row button');
 for (let i = 0; i < keys.length; i++) {
     keys[i].onclick = ({ target }) => {
       const lett = target.getAttribute("data-key");
-	  console.log(lett);
 	  if(lett.length === 1 && pattern.test(lett) && currentGuess.dataset.letters.length <5 ){
 		updateLetters(lett);
 	  }
@@ -21,31 +20,42 @@ for (let i = 0; i < keys.length; i++) {
 	}
 }
 		
-
-	// if (currentGuessCount < 7){
-	// 	if (e.key.length ==1 && pattern.test(e.key) && currentGuess.dataset.letters.length <5){
-	// 		updateLetters(keypress);
-	// }
-	// 	else if  (e.key == 'Backspace' && currentGuess.dataset.letters != ''){
-	// 		deleteLetter();
-	// }
-	// 	else if (e.key == 'Enter' && currentGuess.dataset.letters.length == 5){
-	// 		submitGuess();
-	// }
-	// }
-		
-    
-
 let currentGuess = document.querySelector('#guess' + currentGuessCount);
 //let currentLetters = currentGuess.dataset.letters;
+let word;
 
-let words = ['baker', 'chair', 'crane', 'bread', 'clone', 'weary', 'louis'];
+//let words = ['baker', 'chair', 'crane', 'bread', 'clone', 'weary', 'louis'];
 
-const chooseWord = () => {
-	let randomNumber = Math.floor(Math.random() * (words.length-1)) + 1;
-	solution = words[randomNumber];
-	console.log(solution);
+const chooseWord = () =>{
+	fetch(
+		'https://wordsapiv1.p.rapidapi.com/words/?random=true&lettersMin=5&lettersMax=5',
+		{
+			method: "GET",
+			headers: {
+				'X-RapidAPI-Key': '0c94fb99c3mshf4cfea9b93fb84fp1375dfjsn16ff43b7ca5f',
+				'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
+			},
+		
+		}
+	)
+	.then((response) => {
+		return response.json();
+	})
+	.then( (res) => {
+		word = res.word;
+		solution = word;
+		console.log(solution);
+	})
+	.catch( (err) => {
+		console.error(err);
+	})
 }
+
+// const chooseWord = () => {
+// 	let randomNumber = Math.floor(Math.random() * (words.length-1)) + 1;
+// 	solution = words[randomNumber];
+// 	console.log(solution);
+// }
 
 chooseWord();
 
@@ -193,30 +203,3 @@ const flipTile = (tileNum, state) => {
 	  tile.classList.remove('flip-out');
 	}, 1500);
 }
-
-//const keys = document.querySelectorAll("button");
-// keys.forEach(key => {
-// 	key.addEventListener("click", type);
-// })
-// const type =() =>{
-// 	const tile = document.querySelector('#guess' + currentGuessCount + 'Tile' + tileNum);
-// 	tile.textContent += this.textContent;
-// }
-
-// document.addEventListener('click', (e) =>{
-// 	//console.log('keypress: ' + e.key);
-// 	let keypress = document.querySelectorAll("button");
-// 	if (currentGuessCount < 7){
-// 		if (e.key.length ==1 && pattern.test(e.key) && currentGuess.dataset.letters.length <5){
-// 			updateLetters(keypress);
-// 	}
-// 		else if  (e.key == 'Backspace' && currentGuess.dataset.letters != ''){
-// 			deleteLetter();
-// 	}
-// 		else if (e.key == 'Enter' && currentGuess.dataset.letters.length == 5){
-// 			submitGuess();
-// 	}
-// 	}
-// });
-
-
