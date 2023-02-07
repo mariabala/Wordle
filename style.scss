@@ -1,0 +1,82 @@
+@keyframes rotateRWB {
+    /*Speed of annimation of VOTE*/
+     100% {
+       background-position: 100em 100em;
+     }
+   }
+   /*Colors*/
+   $clr-primary: #3498db;/*Blue*/
+   $clr-secondary: #fff;/*white*/
+   $clr-tertiary: #e74c3c;/*Red*/
+   
+   body {
+     display: flex;/*layout*/
+     flex-direction: column;/*makes content verticle*/
+     align-items: center;/*x*/
+     justify-content: center;/*y*/
+     min-height: 100vh;
+     background: #e5e5e5;
+   }
+   
+   h1,
+   
+   strong {
+     color: $clr-primary; /*EXAMPLE of abstration*/ 
+   } 
+   
+   /*style of "go out and"*/ 
+   strong {
+     font-family: "Work Sans", sans-serif;
+     text-transform: uppercase;
+     font-weight: 900em; /*Thickness of font*/
+     letter-spacing: 1em;
+     margin-left: 2em;
+   }
+   /*VOTE*/
+   h1
+    {
+     font-family: "Shrikhand", cursive;
+     margin: 0; /*Spacing between each line*/
+     font-size: calc(800% + 1vmin);/*calc takes 800%+1vmin and makes it font size*/
+     line-height: 110%; /*Spacing between each color in VOTE*/
+     padding: 0 1em;
+   
+      /*controls annimation color*/
+     .backgroundcliptext & {
+       background: #e74c3c;
+       background: linear-gradient(
+         to bottom,
+          /*controls gradient of colors*/
+         $clr-primary 0%,  
+         $clr-primary 33%,
+         $clr-secondary 33%,
+         $clr-secondary 66%,
+          $clr-tertiary 66%,
+         $clr-tertiary 100%
+       );
+       color: transparent;
+       -webkit-background-clip: text; /*makes the text vote*/
+       background-clip: text;
+       animation: rotateRWB 100s /*SPEED*/linear 1s 1000; /*time it takes before enimation starts*/
+     }
+   }
+   /*BUTTON*/
+   .c-btn {
+     font-family: "Work Sans", sans-serif;
+     text-transform: uppercase;
+     border: 1px solid #fff;
+     border-radius: 3px;
+     display: inline-block; /*set width and height on element*/
+     padding: 0.5em 1em;
+     line-height: 1em;
+     text-decoration: none; /*makes button not underlined*/
+     color: $clr-primary;
+     margin-left: 1em;
+     background: #fff;
+     transition: 0.3s all ease-in-out;
+   
+     &:hover {
+       background: #e74c3c;
+       color: #fff;
+     }
+   }

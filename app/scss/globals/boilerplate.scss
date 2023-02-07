@@ -2,6 +2,7 @@ html {
 	font-size: 100%;
 	font-family: var(--font-body);
 	box-sizing: border-box;
+
 }
 
 *,
@@ -15,7 +16,6 @@ body {
 	margin-bottom: 0px;
 	margin-right: 0px;
 	margin-left: 0px;
-	/*padding: 16px 32px;*/
 	padding-top: 0px;
 	padding-left: 0px;
 	padding-bottom: 0px;
@@ -36,12 +36,12 @@ header{
 	border-bottom: 1px solid hsl(0, 3%, 38%);
 }
 
-.modal{
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
+// .modal{
+// 	position: fixed;
+// 	top: 50%;
+// 	left: 50%;
+// 	transform: translate(-50%, -50%);
+// }
 
 
 
