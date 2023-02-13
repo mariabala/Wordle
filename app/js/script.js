@@ -13307,7 +13307,9 @@ const addColourToKey = (keyLetter, color) => {
   //key.classList.add(color);
   console.log("tada");
   //console.log(key);
-
+  if (key.classList.contains("present")) {
+    key.classList.remove("present");
+  }
   key.classList.add(color);
   console.log(color);
   // setTimeout(() => {
