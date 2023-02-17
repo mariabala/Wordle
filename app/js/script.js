@@ -13317,3 +13317,8 @@ const addColourToKey = (keyLetter, color) => {
   //   console.log(color);
   // }, 250);
 };
+
+function sum(a, b) {
+  return a + b;
+}
+module.exports = sum;

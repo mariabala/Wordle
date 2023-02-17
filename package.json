@@ -23,5 +23,21 @@
     "last 1 version",
     "IE 11",
     "> 1%"
-  ]
+  ],
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "jest": "^29.4.3",
+    "jest-environment-jsdom": "^29.4.3"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariabala/Wordle.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mariabala/Wordle/issues"
+  },
+  "homepage": "https://github.com/mariabala/Wordle#readme"
 }
